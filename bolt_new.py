@@ -11,7 +11,7 @@ TEMPLATES_FOLDER = os.path.join(os.getcwd(), 'templates')
 # Initialize the Flask app with static and template folders
 app = Flask(__name__, static_folder=STATIC_FOLDER, template_folder=TEMPLATES_FOLDER)
 
-# Example route for serving the main page
+# Route for serving the main page
 @app.route('/')
 def index():
     return render_template('index.html')
