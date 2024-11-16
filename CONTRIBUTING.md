@@ -8,6 +8,7 @@ First off, thank you for considering contributing to Bolt.new! This fork aims to
 - [Pull Request Guidelines](#pull-request-guidelines)
 - [Coding Standards](#coding-standards)
 - [Mobile Development Guidelines](#mobile-development-guidelines)
+- [Python Version Contribution Guidelines](#python-version-contribution-guidelines)
 - [Development Setup](#development-setup)
 - [Deployment with Docker](#docker-deployment-documentation)
 - [Project Structure](#project-structure)
@@ -34,6 +35,42 @@ This project and everyone participating in it is governed by our Code of Conduct
 
 ### ✨ Becoming a Core Contributor
 We're looking for dedicated contributors to help maintain and grow this project. If you're interested in becoming a core contributor, please fill out our [Contributor Application Form](https://forms.gle/TBSteXSDCtBDwr5m7).
+
+## Python Version Contribution Guidelines
+
+### Setting Up the Development Environment
+
+1. **Install Python**: Ensure you have Python 3.7 or later installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
+
+2. **Set Up a Virtual Environment**:
+   - Navigate to the directory where you want to set up the project.
+   - Run the following commands to create and activate a virtual environment:
+     ```bash
+     python -m venv venv
+     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+     ```
+
+3. **Install Dependencies**:
+   - Ensure you are in the directory containing `requirements.txt`.
+   - Run the following command to install the necessary dependencies:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+### Testing the Application
+
+- Run the application using:
+  ```bash
+  python bolt_new.py
+  ```
+- Access the application at `http://localhost:5000` to verify it is running correctly.
+
+### Submitting Pull Requests
+
+1. Ensure your code follows the existing style and structure.
+2. Write tests for any new features or bug fixes.
+3. Update documentation to reflect any changes made.
+4. Submit a pull request with a clear description of the changes and any relevant issue numbers.
 
 ## Pull Request Guidelines
 
