@@ -13,7 +13,7 @@ RUN corepack enable pnpm && pnpm install && \
     mkdir -p /usr/local/android-sdk/cmdline-tools && \
     unzip android_cmd_tools.zip -d /usr/local/android-sdk/cmdline-tools && \
     rm android_cmd_tools.zip && \
-    yes | /usr/local/android-sdk/cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=/usr/local/android-sdk "platform-tools" "platforms;android-30" "build-tools;30.0.3"
+    yes | /usr/local/android-sdk/cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=/usr/local/android-sdk "tools" "platform-tools" "platforms;android-30" "build-tools;30.0.3"
 
 # Copy the rest of your app's source code
 COPY . .

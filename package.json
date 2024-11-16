@@ -30,7 +30,7 @@
     "typecheck": "tsc",
     "typegen": "wrangler types",
     "preview": "pnpm run build && pnpm run start",
-    "build:apk": "capacitor build android"
+    "build:apk": "cd android && ./gradlew assembleDebug"
   },
   "engines": {
     "node": ">=18.18.0"

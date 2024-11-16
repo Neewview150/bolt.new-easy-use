@@ -10,6 +10,34 @@ Before you begin, ensure you have the following installed on your system:
 - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 - [Android Studio](https://developer.android.com/studio)
 
+## Manual Android SDK Setup
+
+If Android Studio is not available, you can manually set up the Android SDK by following these steps:
+
+1. **Download Command Line Tools**:
+   - Visit the [Android Command Line Tools download page](https://developer.android.com/studio#command-tools) and download the appropriate package for your operating system.
+   - Extract the downloaded archive to a directory of your choice.
+
+2. **Set Up SDK Path**:
+   - Create a new directory for the Android SDK, e.g., `~/Android/Sdk`.
+   - Move the extracted command line tools into this directory under `cmdline-tools/latest`.
+
+3. **Install SDK Components**:
+   - Open a terminal and navigate to the `cmdline-tools/latest/bin` directory.
+   - Run the following command to install the necessary SDK components:
+     ```bash
+     ./sdkmanager --sdk_root=~/Android/Sdk "platform-tools" "platforms;android-30" "build-tools;30.0.3"
+     ```
+
+4. **Add Platform-Tools to System PATH**:
+   - Add the `platform-tools` directory to your system PATH. For example, add the following line to your `.bashrc` or `.zshrc` file:
+     ```bash
+     export PATH=$PATH:~/Android/Sdk/platform-tools
+     ```
+
+5. **Verify Installation**:
+   - Run `adb --version` in a terminal to verify that the platform-tools are correctly installed and accessible.
+
 ## Installing Android Studio
 
 1. **Download Android Studio**: Visit the [Android Studio download page](https://developer.android.com/studio) and download the installer for your operating system.
