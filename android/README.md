@@ -77,6 +77,9 @@ If Android Studio is not available, you can manually set up the Android SDK by f
      pnpm run build:apk
      ```
    - This command uses Capacitor to build the APK. Ensure that Capacitor is properly configured in your project.
+   
+3. **Locate the Generated APK**:
+   - Once the build process is complete, locate the generated APK file in the `android/app/build/outputs/apk/debug` directory. This is the APK file that can be installed on an Android device.
 
 ## Running the APK on a Device
 
