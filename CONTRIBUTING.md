@@ -8,9 +8,10 @@ First off, thank you for considering contributing to Bolt.new! This fork aims to
 - [Pull Request Guidelines](#pull-request-guidelines)
 - [Coding Standards](#coding-standards)
 - [Development Setup](#development-setup)
-- [Deploymnt with Docker](#docker-deployment-documentation)
+- [Deployment with Docker](#docker-deployment-documentation)
 - [Project Structure](#project-structure)
 - [Integrating New AI Models and Providers](#integrating-new-ai-models-and-providers)
+- [Mobile Development Guidelines](#mobile-development-guidelines)
 
 ## Code of Conduct
 
@@ -46,6 +47,46 @@ We're looking for dedicated contributors to help maintain and grow this project.
 2. At least one maintainer review required
 3. Address all review comments
 4. Maintain clean commit history
+
+## Mobile Development Guidelines
+
+### Setting Up the Development Environment for Android
+
+1. **Install React Native CLI**:
+   - Ensure you have Node.js installed.
+   - Install React Native CLI globally:
+     ```bash
+     npm install -g react-native-cli
+     ```
+
+2. **Set Up Android Environment**:
+   - Install Android Studio from [developer.android.com](https://developer.android.com/studio).
+   - Set up the Android SDK and ensure you have the necessary SDK tools installed.
+   - Add the Android SDK's `platform-tools` to your system's PATH.
+
+3. **Configure an Android Emulator**:
+   - Open Android Studio and create a new virtual device using the AVD Manager.
+   - Choose a device definition and a system image, then click "Finish" to create the emulator.
+
+4. **Connect a Physical Device** (Optional):
+   - Enable Developer Options and USB Debugging on your Android device.
+   - Connect your device to your computer via USB.
+
+5. **Run the Application**:
+   - Start the Android emulator or connect your physical device.
+   - Navigate to the project directory and run:
+     ```bash
+     react-native run-android
+     ```
+   - This will build the app and install it on the connected device or emulator.
+
+### Mobile Coding Standards
+
+- Follow existing code style and structure.
+- Use React Native components and APIs.
+- Ensure compatibility with Android 6 (Marshmallow) and above.
+- Test UI responsiveness on different screen sizes.
+- Comment complex logic and use meaningful variable names.
 
 ## Coding Standards
 

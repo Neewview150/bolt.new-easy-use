@@ -100,6 +100,38 @@ For developers interested in building their own AI-powered development tools wit
 
 Follow these steps to get Bolt.new running locally:
 
+## Running on Android Devices
+
+To run Bolt.new on Android devices, follow these steps:
+
+1. **Install React Native CLI**:
+   - Ensure you have Node.js installed.
+   - Install React Native CLI globally:
+     ```bash
+     npm install -g react-native-cli
+     ```
+
+2. **Set Up Android Environment**:
+   - Install Android Studio from [developer.android.com](https://developer.android.com/studio).
+   - Set up the Android SDK and ensure you have the necessary SDK tools installed.
+   - Add the Android SDK's `platform-tools` to your system's PATH.
+
+3. **Configure an Android Emulator**:
+   - Open Android Studio and create a new virtual device using the AVD Manager.
+   - Choose a device definition and a system image, then click "Finish" to create the emulator.
+
+4. **Connect a Physical Device** (Optional):
+   - Enable Developer Options and USB Debugging on your Android device.
+   - Connect your device to your computer via USB.
+
+5. **Run the Application**:
+   - Start the Android emulator or connect your physical device.
+   - Navigate to the project directory and run:
+     ```bash
+     react-native run-android
+     ```
+   - This will build the app and install it on the connected device or emulator.
+
 1. **Install Prerequisites**:
    - [Git](https://git-scm.com/downloads)
    - [Node.js](https://nodejs.org/en/download/)
