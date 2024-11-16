@@ -7,7 +7,7 @@ import { Menu } from '~/components/sidebar/Menu.client';
 import { IconButton } from '~/components/ui/IconButton';
 import { Workbench } from '~/components/workbench/Workbench.client';
 import { classNames } from '~/utils/classNames';
-import { MODEL_LIST, DEFAULT_PROVIDER, PROVIDER_LIST, initializeModelList } from '~/utils/constants';
+import { DEFAULT_PROVIDER, PROVIDER_LIST, initializeModelList } from '~/utils/constants';
 import { Messages } from './Messages.client';
 import { SendButton } from './SendButton.client';
 import { useState } from 'react';
@@ -113,7 +113,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
   ) => {
     const TEXTAREA_MAX_HEIGHT = chatStarted ? 400 : 200;
     const [apiKeys, setApiKeys] = useState<Record<string, string>>({});
-    const [modelList, setModelList] = useState(MODEL_LIST);
+    const [modelList, setModelList] = useState([]);
 
     useEffect(() => {
       // Load API keys from cookies on component mount
@@ -131,8 +131,8 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
         Cookies.remove('apiKeys');
       }
 
-      initializeModelList().then((modelList) => {
-        setModelList(modelList);
+      initializeModelList().then((updatedModelList) => {
+        setModelList(updatedModelList);
       });
     }, []);
 

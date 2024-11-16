@@ -59,6 +59,39 @@ Claude, v0, etc are incredible- but you can't install packages, run backends, or
 
 - **AI with Environment Control**: Unlike traditional dev environments where the AI can only assist in code generation, Bolt.new gives AI models **complete control** over the entire  environment including the filesystem, node server, package manager, terminal, and browser console. This empowers AI agents to handle the whole app lifecycle—from creation to deployment.
 
+## Using New AI Models and Providers
+
+Bolt.new supports a variety of AI models and providers, allowing you to choose the best fit for your project. Here's how to set up and use these models:
+
+### Setting Up API Keys
+
+To use different AI providers, you'll need to set up API keys. Follow these steps:
+
+1. **Obtain API Keys**: 
+   - **OpenAI**: Get your API key from [OpenAI's API keys page](https://platform.openai.com/api-keys).
+   - **Anthropic**: Obtain your API key from [Anthropic's settings](https://console.anthropic.com/settings/keys).
+   - **Groq**: Retrieve your API key from [Groq's console](https://console.groq.com/keys).
+   - **Other Providers**: Follow similar steps on their respective platforms.
+
+2. **Configure API Keys**: 
+   - Rename `.env.example` to `.env.local`.
+   - Add your API keys to the `.env.local` file:
+     ```
+     GROQ_API_KEY=your_groq_api_key
+     OPENAI_API_KEY=your_openai_api_key
+     ANTHROPIC_API_KEY=your_anthropic_api_key
+     ```
+
+### Selecting Models in the UI
+
+Once your API keys are set up, you can select models directly in the Bolt.new UI:
+
+1. **Open the Model Selector**: In the chat interface, locate the model selector dropdown.
+2. **Choose a Provider**: Select your desired provider from the list.
+3. **Select a Model**: Choose the specific model you wish to use for your prompts.
+
+These steps ensure you can leverage the latest AI capabilities in your projects with Bolt.new.
+
 Whether you’re an experienced developer, a PM, or a designer, Bolt.new allows you to easily build production-grade full-stack applications.
 
 For developers interested in building their own AI-powered development tools with WebContainers, check out the open-source Bolt codebase in this repo!

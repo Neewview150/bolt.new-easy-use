@@ -14,6 +14,8 @@ export const APIKeyManager: React.FC<APIKeyManagerProps> = ({
                                                               provider,
                                                               apiKey,
                                                               setApiKey,
+                                                              getApiKeyLink,
+                                                              labelForGetApiKey,
                                                             }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [tempKey, setTempKey] = useState(apiKey);
@@ -50,8 +52,8 @@ export const APIKeyManager: React.FC<APIKeyManagerProps> = ({
             <div className="i-ph:pencil-simple" />
           </IconButton>
 
-          {provider?.getApiKeyLink && <IconButton onClick={() => window.open(provider?.getApiKeyLink)} title="Edit API Key">
-            <span className="mr-2">{provider?.labelForGetApiKey || 'Get API Key'}</span>
+          {getApiKeyLink && <IconButton onClick={() => window.open(getApiKeyLink)} title="Get API Key">
+            <span className="mr-2">{labelForGetApiKey || 'Get API Key'}</span>
             <div className={provider?.icon || "i-ph:key"} />
           </IconButton>}
         </>

@@ -10,6 +10,7 @@ First off, thank you for considering contributing to Bolt.new! This fork aims to
 - [Development Setup](#development-setup)
 - [Deploymnt with Docker](#docker-deployment-documentation)
 - [Project Structure](#project-structure)
+- [Integrating New AI Models and Providers](#integrating-new-ai-models-and-providers)
 
 ## Code of Conduct
 
@@ -53,6 +54,31 @@ We're looking for dedicated contributors to help maintain and grow this project.
 - Comment complex logic
 - Keep functions focused and small
 - Use meaningful variable names
+
+## Integrating New AI Models and Providers
+
+### Adding New Models to the MODEL_LIST
+1. Open the `app/utils/constants.ts` file.
+2. Locate the `MODEL_LIST` array.
+3. Add a new entry for your model with the following structure:
+   ```typescript
+   {
+     name: 'model-id',
+     label: 'Model Label',
+     provider: 'Provider Name'
+   }
+   ```
+4. Ensure the model ID and provider name match those used by the provider's API.
+
+### Updating API Handling Logic
+1. Open the relevant API route file, such as `app/routes/api.chat.ts`.
+2. Ensure that the API keys for the new provider are correctly parsed and included in requests.
+3. Update any logic that handles provider-specific configurations or endpoints.
+
+### Testing the Integration
+1. Verify that the new model appears in the UI and can be selected.
+2. Test sending requests to the new model and ensure responses are handled correctly.
+3. Check for any errors or issues in the console and address them as needed.
 
 ## Development Setup
 
