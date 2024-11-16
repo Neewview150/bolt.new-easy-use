@@ -34,13 +34,13 @@ export const APIKeyManager: React.FC<APIKeyManagerProps> = ({
             type="password"
             value={tempKey}
             onChange={(e) => setTempKey(e.target.value)}
-            className="flex-1 p-1 text-sm rounded border border-bolt-elements-borderColor bg-bolt-elements-prompt-background text-bolt-elements-textPrimary focus:outline-none focus:ring-2 focus:ring-bolt-elements-focus"
+            className="flex-1 p-3 text-base rounded border border-bolt-elements-borderColor bg-bolt-elements-prompt-background text-bolt-elements-textPrimary focus:outline-none focus:ring-2 focus:ring-bolt-elements-focus"
           />
-          <IconButton onClick={handleSave} title="Save API Key">
-            <div className="i-ph:check" />
+          <IconButton onClick={handleSave} title="Save API Key" className="p-3">
+            <div className="i-ph:check text-lg" />
           </IconButton>
-          <IconButton onClick={() => setIsEditing(false)} title="Cancel">
-            <div className="i-ph:x" />
+          <IconButton onClick={() => setIsEditing(false)} title="Cancel" className="p-3">
+            <div className="i-ph:x text-lg" />
           </IconButton>
         </>
       ) : (
@@ -48,12 +48,12 @@ export const APIKeyManager: React.FC<APIKeyManagerProps> = ({
           <span className="flex-1 text-sm text-bolt-elements-textPrimary">
             {apiKey ? '••••••••' : 'Not set (will still work if set in .env file)'}
           </span>
-          <IconButton onClick={() => setIsEditing(true)} title="Edit API Key">
-            <div className="i-ph:pencil-simple" />
+          <IconButton onClick={() => setIsEditing(true)} title="Edit API Key" className="p-3">
+            <div className="i-ph:pencil-simple text-lg" />
           </IconButton>
 
-          {getApiKeyLink && <IconButton onClick={() => window.open(getApiKeyLink)} title="Get API Key">
-            <span className="mr-2">{labelForGetApiKey || 'Get API Key'}</span>
+          {getApiKeyLink && <IconButton onClick={() => window.open(getApiKeyLink)} title="Get API Key" className="p-3">
+            <span className="mr-2 text-base">{labelForGetApiKey || 'Get API Key'}</span>
             <div className={provider?.icon || "i-ph:key"} />
           </IconButton>}
         </>

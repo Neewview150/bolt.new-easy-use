@@ -75,10 +75,12 @@ async function chatAction({ context, request }: ActionFunctionArgs) {
       status: 200,
       headers: {
         'Content-Type': 'text/plain; charset=utf-8',
+        'Access-Control-Allow-Origin': '*', // Allow all origins for mobile compatibility
+        'Access-Control-Allow-Headers': 'Content-Type', // Allow content-type header
       },
     });
   } catch (error) {
-    console.log(error);
+    console.error(error); // Use console.error for better error logging
 
     if (error.message?.includes('API key')) {
       throw new Response('Invalid or missing API key', {
