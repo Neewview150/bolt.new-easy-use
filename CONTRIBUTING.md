@@ -7,6 +7,7 @@ First off, thank you for considering contributing to Bolt.new! This fork aims to
 - [How Can I Contribute?](#how-can-i-contribute)
 - [Pull Request Guidelines](#pull-request-guidelines)
 - [Coding Standards](#coding-standards)
+- [Mobile Development Guidelines](#mobile-development-guidelines)
 - [Development Setup](#development-setup)
 - [Deployment with Docker](#docker-deployment-documentation)
 - [Project Structure](#project-structure)
@@ -49,6 +50,25 @@ We're looking for dedicated contributors to help maintain and grow this project.
 4. Maintain clean commit history
 
 ## Mobile Development Guidelines
+
+### Contributing to the Mobile APK Version
+
+When contributing to the mobile APK version of Bolt.new, please follow these guidelines:
+
+1. **Testing the APK**:
+   - Test the APK on a variety of Android devices and emulators to ensure compatibility.
+   - Verify that the app functions correctly on different screen sizes and resolutions.
+   - Ensure that the app performs well on devices with different hardware capabilities.
+
+2. **Reporting Issues**:
+   - When reporting issues specific to the mobile version, include details about the device and Android version.
+   - Provide steps to reproduce the issue and any relevant logs or screenshots.
+   - Label the issue with "mobile" to help categorize it appropriately.
+
+3. **Code Contributions**:
+   - Follow the existing code style and structure for mobile-specific code.
+   - Ensure that any new features or changes are tested thoroughly on mobile devices.
+   - Update documentation to reflect any changes made to the mobile version.
 
 ### Setting Up the Development Environment for Android
 

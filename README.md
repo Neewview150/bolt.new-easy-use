@@ -100,6 +100,31 @@ For developers interested in building their own AI-powered development tools wit
 
 Follow these steps to get Bolt.new running locally:
 
+## Building the APK for Android
+
+To build an APK for Android devices, follow these steps:
+
+1. **Install Prerequisites**:
+   - [Node.js](https://nodejs.org/en/download/)
+   - [Android Studio](https://developer.android.com/studio)
+   - Ensure you have Java Development Kit (JDK) installed, which is required by Android Studio.
+
+2. **Set Up Android Studio**:
+   - Open Android Studio and install the necessary SDK tools.
+   - Set up an Android Virtual Device (AVD) if you plan to test on an emulator.
+
+3. **Build the APK**:
+   - Navigate to the project directory in your terminal.
+   - Run the following command to build the APK:
+     ```bash
+     pnpm run build:apk
+     ```
+   - This command uses Capacitor to build the APK. Ensure that Capacitor is properly configured in your project.
+
+4. **Install the APK**:
+   - Once the build is complete, you can find the APK in the `android/app/build/outputs/apk/debug` directory.
+   - Transfer the APK to your Android device or use an emulator to install and test it.
+
 ## Running on Android Devices
 
 To run Bolt.new on Android devices, follow these steps:

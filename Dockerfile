@@ -6,7 +6,14 @@ WORKDIR /app
 # Install dependencies (this step is cached as long as the dependencies don't change)
 COPY package.json pnpm-lock.yaml ./
 
-RUN corepack enable pnpm && pnpm install
+RUN corepack enable pnpm && pnpm install && \
+    npm install -g @capacitor/cli && \
+    apt-get update && apt-get install -y openjdk-11-jdk && \
+    wget -q https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip -O android_cmd_tools.zip && \
+    mkdir -p /usr/local/android-sdk/cmdline-tools && \
+    unzip android_cmd_tools.zip -d /usr/local/android-sdk/cmdline-tools && \
+    rm android_cmd_tools.zip && \
+    yes | /usr/local/android-sdk/cmdline-tools/cmdline-tools/bin/sdkmanager --sdk_root=/usr/local/android-sdk "platform-tools" "platforms;android-30" "build-tools;30.0.3"
 
 # Copy the rest of your app's source code
 COPY . .
