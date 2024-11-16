@@ -322,6 +322,10 @@ pnpm run dev
 
 This will start the Remix Vite development server. You will need Google Chrome Canary to run this locally if you use Chrome! It's an easy install and a good browser for web development anyway.
 
+## Mobile Application
+
+Currently, Bolt.new does not have a dedicated mobile application. However, there are plans to develop a mobile app to enhance accessibility and usability on mobile devices. The mobile app will aim to provide a seamless experience similar to the desktop version, allowing users to prompt, run, edit, and deploy applications directly from their mobile devices. Stay tuned for updates on the development progress and release timeline.
+
 ## Tips and Tricks
 
 Here are some tips to get the most out of Bolt.new:
