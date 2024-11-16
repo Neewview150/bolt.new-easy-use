@@ -7,9 +7,12 @@ First off, thank you for considering contributing to Bolt.new! This fork aims to
 - [How Can I Contribute?](#how-can-i-contribute)
 - [Pull Request Guidelines](#pull-request-guidelines)
 - [Coding Standards](#coding-standards)
+- [Mobile Development Guidelines](#mobile-development-guidelines)
 - [Development Setup](#development-setup)
-- [Deploymnt with Docker](#docker-deployment-documentation)
+- [Deployment with Docker](#docker-deployment-documentation)
 - [Project Structure](#project-structure)
+- [Integrating New AI Models and Providers](#integrating-new-ai-models-and-providers)
+- [Mobile Development Guidelines](#mobile-development-guidelines)
 
 ## Code of Conduct
 
@@ -46,6 +49,65 @@ We're looking for dedicated contributors to help maintain and grow this project.
 3. Address all review comments
 4. Maintain clean commit history
 
+## Mobile Development Guidelines
+
+### Contributing to the Mobile APK Version
+
+When contributing to the mobile APK version of Bolt.new, please follow these guidelines:
+
+1. **Testing the APK**:
+   - Test the APK on a variety of Android devices and emulators to ensure compatibility.
+   - Verify that the app functions correctly on different screen sizes and resolutions.
+   - Ensure that the app performs well on devices with different hardware capabilities.
+
+2. **Reporting Issues**:
+   - When reporting issues specific to the mobile version, include details about the device and Android version.
+   - Provide steps to reproduce the issue and any relevant logs or screenshots.
+   - Label the issue with "mobile" to help categorize it appropriately.
+
+3. **Code Contributions**:
+   - Follow the existing code style and structure for mobile-specific code.
+   - Ensure that any new features or changes are tested thoroughly on mobile devices.
+   - Update documentation to reflect any changes made to the mobile version.
+
+### Setting Up the Development Environment for Android
+
+1. **Install React Native CLI**:
+   - Ensure you have Node.js installed.
+   - Install React Native CLI globally:
+     ```bash
+     npm install -g react-native-cli
+     ```
+
+2. **Set Up Android Environment**:
+   - Install Android Studio from [developer.android.com](https://developer.android.com/studio).
+   - Set up the Android SDK and ensure you have the necessary SDK tools installed.
+   - Add the Android SDK's `platform-tools` to your system's PATH.
+
+3. **Configure an Android Emulator**:
+   - Open Android Studio and create a new virtual device using the AVD Manager.
+   - Choose a device definition and a system image, then click "Finish" to create the emulator.
+
+4. **Connect a Physical Device** (Optional):
+   - Enable Developer Options and USB Debugging on your Android device.
+   - Connect your device to your computer via USB.
+
+5. **Run the Application**:
+   - Start the Android emulator or connect your physical device.
+   - Navigate to the project directory and run:
+     ```bash
+     react-native run-android
+     ```
+   - This will build the app and install it on the connected device or emulator.
+
+### Mobile Coding Standards
+
+- Follow existing code style and structure.
+- Use React Native components and APIs.
+- Ensure compatibility with Android 6 (Marshmallow) and above.
+- Test UI responsiveness on different screen sizes.
+- Comment complex logic and use meaningful variable names.
+
 ## Coding Standards
 
 ### 💻 General Guidelines
@@ -54,40 +116,65 @@ We're looking for dedicated contributors to help maintain and grow this project.
 - Keep functions focused and small
 - Use meaningful variable names
 
-## Development Setup
+## Integrating New AI Models and Providers
 
-### 🔄 Initial Setup
-1. Clone the repository:
-```bash
-git clone https://github.com/coleam00/bolt.new-any-llm.git
-```
+### Adding New Models to the MODEL_LIST
+1. Open the `app/utils/constants.ts` file.
+2. Locate the `MODEL_LIST` array.
+3. Add a new entry for your model with the following structure:
+   ```typescript
+   {
+     name: 'model-id',
+     label: 'Model Label',
+     provider: 'Provider Name'
+   }
+   ```
+4. Ensure the model ID and provider name match those used by the provider's API.
 
-2. Install dependencies:
-```bash
-pnpm install
-```
+### Updating API Handling Logic
+1. Open the relevant API route file, such as `app/routes/api.chat.ts`.
+2. Ensure that the API keys for the new provider are correctly parsed and included in requests.
+3. Update any logic that handles provider-specific configurations or endpoints.
 
-3. Set up environment variables:
-   - Rename `.env.example` to `.env.local`
-   - Add your LLM API keys (only set the ones you plan to use):
-```bash
-GROQ_API_KEY=XXX
-OPENAI_API_KEY=XXX
-ANTHROPIC_API_KEY=XXX
-...
-```
-   - Optionally set debug level:
-```bash
-VITE_LOG_LEVEL=debug
-```
-**Important**: Never commit your `.env.local` file to version control. It's already included in .gitignore.
+### Testing the Integration
+1. Verify that the new model appears in the UI and can be selected.
+2. Test sending requests to the new model and ensure responses are handled correctly.
+3. Check for any errors or issues in the console and address them as needed.
 
-### 🚀 Running the Development Server
-```bash
-pnpm run dev
-```
+## Quick Setup Guide
 
-**Note**: You will need Google Chrome Canary to run this locally if you use Chrome! It's an easy install and a good browser for web development anyway.
+Follow these steps to get Bolt.new running locally:
+
+1. **Install Prerequisites**:
+   - [Git](https://git-scm.com/downloads)
+   - [Node.js](https://nodejs.org/en/download/)
+
+2. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/coleam00/bolt.new-any-llm.git
+   cd bolt.new-any-llm
+   ```
+
+3. **Set Up Environment Variables**:
+   - Rename `.env.example` to `.env.local`.
+   - Add your API keys to `.env.local`:
+     ```bash
+     GROQ_API_KEY=your_groq_api_key
+     OPENAI_API_KEY=your_openai_api_key
+     ANTHROPIC_API_KEY=your_anthropic_api_key
+     ```
+
+4. **Install Dependencies**:
+   ```bash
+   pnpm install
+   ```
+
+5. **Start the Development Server**:
+   ```bash
+   pnpm run dev
+   ```
+
+These steps will get you up and running with Bolt.new quickly. For more detailed instructions, refer to the sections below.
 
 ## Testing
 

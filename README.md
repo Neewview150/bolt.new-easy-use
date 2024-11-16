@@ -59,65 +59,148 @@ Claude, v0, etc are incredible- but you can't install packages, run backends, or
 
 - **AI with Environment Control**: Unlike traditional dev environments where the AI can only assist in code generation, Bolt.new gives AI models **complete control** over the entire  environment including the filesystem, node server, package manager, terminal, and browser console. This empowers AI agents to handle the whole app lifecycle—from creation to deployment.
 
+## Using New AI Models and Providers
+
+Bolt.new supports a variety of AI models and providers, allowing you to choose the best fit for your project. Here's how to set up and use these models:
+
+### Setting Up API Keys
+
+To use different AI providers, you'll need to set up API keys. Follow these steps:
+
+1. **Obtain API Keys**: 
+   - **OpenAI**: Get your API key from [OpenAI's API keys page](https://platform.openai.com/api-keys).
+   - **Anthropic**: Obtain your API key from [Anthropic's settings](https://console.anthropic.com/settings/keys).
+   - **Groq**: Retrieve your API key from [Groq's console](https://console.groq.com/keys).
+   - **Other Providers**: Follow similar steps on their respective platforms.
+
+2. **Configure API Keys**: 
+   - Rename `.env.example` to `.env.local`.
+   - Add your API keys to the `.env.local` file:
+     ```
+     GROQ_API_KEY=your_groq_api_key
+     OPENAI_API_KEY=your_openai_api_key
+     ANTHROPIC_API_KEY=your_anthropic_api_key
+     ```
+
+### Selecting Models in the UI
+
+Once your API keys are set up, you can select models directly in the Bolt.new UI:
+
+1. **Open the Model Selector**: In the chat interface, locate the model selector dropdown.
+2. **Choose a Provider**: Select your desired provider from the list.
+3. **Select a Model**: Choose the specific model you wish to use for your prompts.
+
+These steps ensure you can leverage the latest AI capabilities in your projects with Bolt.new.
+
 Whether you’re an experienced developer, a PM, or a designer, Bolt.new allows you to easily build production-grade full-stack applications.
 
 For developers interested in building their own AI-powered development tools with WebContainers, check out the open-source Bolt codebase in this repo!
 
-## Setup
+## Quick Setup Guide
 
-Many of you are new users to installing software from Github. If you have any installation troubles reach out and submit an "issue" using the links above, or feel free to enhance this documentation by forking, editing the instructions, and doing a pull request.
+Follow these steps to get Bolt.new running locally:
 
-1. Install Git from https://git-scm.com/downloads
+## Building the APK for Android
 
-2. Install Node.js from https://nodejs.org/en/download/ 
+To build an APK for Android devices, follow these steps:
 
-Pay attention to the installer notes after completion. 
+1. **Install Prerequisites**:
+   - [Node.js](https://nodejs.org/en/download/)
+   - [Android Studio](https://developer.android.com/studio)
+   - Ensure you have Java Development Kit (JDK) installed, which is required by Android Studio.
 
-On all operating systems, the path to Node.js should automatically be added to your system path. But you can check your path if you want to be sure. On Windows, you can search for "edit the system environment variables" in your system, select "Environment Variables..." once you are in the system properties, and then check for a path to Node in your "Path" system variable. On a Mac or Linux machine, it will tell you to check if /usr/local/bin is in your $PATH. To determine if usr/local/bin is included in $PATH open your Terminal and run:
+2. **Set Up Android Studio**:
+   - Open Android Studio and install the necessary SDK tools.
+   - Set up an Android Virtual Device (AVD) if you plan to test on an emulator.
 
-```
-echo $PATH .
-```
+3. **Build the APK**:
+   - Navigate to the project directory in your terminal.
+   - Run the following command to build the APK:
+     ```bash
+     pnpm run build:apk
+     ```
+   - This command uses Capacitor to build the APK. Ensure that Capacitor is properly configured in your project.
 
-If you see usr/local/bin in the output then you're good to go.
+4. **Install the APK**:
+   - Once the build is complete, you can find the APK in the `android/app/build/outputs/apk/debug` directory.
+   - Transfer the APK to your Android device or use an emulator to install and test it.
 
-3. Clone the repository (if you haven't already) by opening a Terminal window (or CMD with admin permissions) and then typing in this:
+## Running on Android Devices
 
-```
-git clone https://github.com/coleam00/bolt.new-any-llm.git
-```
+To run Bolt.new on Android devices, follow these steps:
 
-3. Rename .env.example to .env.local and add your LLM API keys. You will find this file on a Mac at "[your name]/bold.new-any-llm/.env.example". For Windows and Linux the path will be similar.
+1. **Install React Native CLI**:
+   - Ensure you have Node.js installed.
+   - Install React Native CLI globally:
+     ```bash
+     npm install -g react-native-cli
+     ```
 
-![image](https://github.com/user-attachments/assets/7e6a532c-2268-401f-8310-e8d20c731328)
+2. **Set Up Android Environment**:
+   - Install Android Studio from [developer.android.com](https://developer.android.com/studio).
+   - Set up the Android SDK and ensure you have the necessary SDK tools installed.
+   - Add the Android SDK's `platform-tools` to your system's PATH.
 
-If you can't see the file indicated above, its likely you can't view hidden files. On Mac, open a Terminal window and enter this command below. On Windows, you will see the hidden files option in File Explorer Settings. A quick Google search will help you if you are stuck here.
+3. **Configure an Android Emulator**:
+   - Open Android Studio and create a new virtual device using the AVD Manager.
+   - Choose a device definition and a system image, then click "Finish" to create the emulator.
 
-```
-defaults write com.apple.finder AppleShowAllFiles YES
-```
+4. **Connect a Physical Device** (Optional):
+   - Enable Developer Options and USB Debugging on your Android device.
+   - Connect your device to your computer via USB.
 
-**NOTE**: you only have to set the ones you want to use and Ollama doesn't need an API key because it runs locally on your computer:
+5. **Run the Application**:
+   - Start the Android emulator or connect your physical device.
+   - Navigate to the project directory and run:
+     ```bash
+     react-native run-android
+     ```
+   - This will build the app and install it on the connected device or emulator.
 
-Get your GROQ API Key here: https://console.groq.com/keys
+1. **Install Prerequisites**:
+   - [Git](https://git-scm.com/downloads)
+   - [Node.js](https://nodejs.org/en/download/)
 
-Get your Open AI API Key by following these instructions: https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key
+2. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/coleam00/bolt.new-any-llm.git
+   cd bolt.new-any-llm
+   ```
 
-Get your Anthropic API Key in your account settings: https://console.anthropic.com/settings/keys
+3. **Set Up Environment Variables**:
+   - Rename `.env.example` to `.env.local`.
+   - Add your API keys to `.env.local`:
+     ```bash
+     GROQ_API_KEY=your_groq_api_key
+     OPENAI_API_KEY=your_openai_api_key
+     ANTHROPIC_API_KEY=your_anthropic_api_key
+     ```
 
-```
-GROQ_API_KEY=XXX
-OPENAI_API_KEY=XXX
-ANTHROPIC_API_KEY=XXX
-```
+4. **Install Dependencies**:
+   ```bash
+   pnpm install
+   ```
 
-Optionally, you can set the debug level:
+5. **Start the Development Server**:
+   ```bash
+   pnpm run dev
+   ```
 
-```
-VITE_LOG_LEVEL=debug
-```
+### Using Docker for Setup
 
-**Important**: Never commit your `.env.local` file to version control. It's already included in .gitignore.
+For an easier setup, you can use Docker:
+
+1. **Build the Docker Image**:
+   ```bash
+   npm run dockerbuild
+   ```
+
+2. **Run the Docker Container**:
+   ```bash
+   docker-compose --profile development up
+   ```
+
+These steps will get you up and running with Bolt.new quickly. For more detailed instructions, refer to the sections below.
 
 ## Run with Docker
 
@@ -238,6 +321,10 @@ pnpm run dev
 ```
 
 This will start the Remix Vite development server. You will need Google Chrome Canary to run this locally if you use Chrome! It's an easy install and a good browser for web development anyway.
+
+## Mobile Application
+
+Currently, Bolt.new does not have a dedicated mobile application. However, there are plans to develop a mobile app to enhance accessibility and usability on mobile devices. The mobile app will aim to provide a seamless experience similar to the desktop version, allowing users to prompt, run, edit, and deploy applications directly from their mobile devices. Stay tuned for updates on the development progress and release timeline.
 
 ## Tips and Tricks
 

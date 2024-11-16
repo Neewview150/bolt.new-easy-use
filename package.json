@@ -6,21 +6,31 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "deploy": "npm run build && wrangler pages deploy",
-    "build": "remix vite:build",
+    // Use this script to start the development server locally
     "dev": "remix vite:dev",
+    // Use this script to build the application for production
+    "build": "remix vite:build",
+    // Use this script to deploy the application to Cloudflare Pages
+    "deploy": "npm run build && wrangler pages deploy",
+    // Use this script to run the test suite once
     "test": "vitest --run",
+    // Use this script to run the test suite in watch mode
     "test:watch": "vitest",
+    // Use this script to lint the codebase
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+    // Use this script to automatically fix linting issues
     "lint:fix": "npm run lint -- --fix",
+    // Use this script to start the built application locally
     "start": "bindings=$(./bindings.sh) && wrangler pages dev ./build/client $bindings",
     "dockerstart": "bindings=$(./bindings.sh) && wrangler pages dev ./build/client $bindings --ip 0.0.0.0 --port 5173 --no-show-interactive-dev-session",
+    "start:mobile": "cd mobile && react-native start",
     "dockerrun": "docker run -it -d --name bolt-ai-live -p 5173:5173 --env-file .env.local bolt-ai",
     "dockerbuild:prod": "docker build -t bolt-ai:production -t bolt-ai:latest --target bolt-ai-production .",
     "dockerbuild": "docker build -t bolt-ai:development -t bolt-ai:latest --target bolt-ai-development .",
     "typecheck": "tsc",
     "typegen": "wrangler types",
-    "preview": "pnpm run build && pnpm run start"
+    "preview": "pnpm run build && pnpm run start",
+    "build:apk": "capacitor build android"
   },
   "engines": {
     "node": ">=18.18.0"
@@ -77,6 +87,10 @@
     "ollama-ai-provider": "^0.15.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-native": "^0.71.0",
+    "react-dom": "^18.2.0",
+    "react-native": "^0.71.0",
+    "react-native-web": "^0.18.10",
     "react-hotkeys-hook": "^4.5.0",
     "react-markdown": "^9.0.1",
     "react-resizable-panels": "^2.0.20",

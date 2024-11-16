@@ -67,14 +67,14 @@ async function chatAction({ context, request }: ActionFunctionArgs) {
       },
     };
 
-    const result = await streamText(messages, context.cloudflare.env, options, apiKeys);
+    const result = await streamText(messages, context.cloudflare.env, { ...options, apiKeys });
 
     stream.switchSource(result.toAIStream());
 
     return new Response(stream.readable, {
       status: 200,
       headers: {
-        contentType: 'text/plain; charset=utf-8',
+        'Content-Type': 'text/plain; charset=utf-8',
       },
     });
   } catch (error) {

@@ -32,21 +32,21 @@ services:
     build:
       target: bolt-ai-development
     environment:
-      - NODE_ENV=development
-      - VITE_HMR_PROTOCOL=ws
-      - VITE_HMR_HOST=localhost
-      - VITE_HMR_PORT=5173
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true  
-      - PORT=5173
-      - GROQ_API_KEY=${GROQ_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - OPEN_ROUTER_API_KEY=${OPEN_ROUTER_API_KEY}
-      - GOOGLE_GENERATIVE_AI_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY}
-      - OLLAMA_API_BASE_URL=${OLLAMA_API_BASE_URL}
-      - VITE_LOG_LEVEL=${VITE_LOG_LEVEL:-debug}
-      - RUNNING_IN_DOCKER=true
+      - NODE_ENV=development  # Set the environment to development
+      - VITE_HMR_PROTOCOL=ws  # WebSocket protocol for HMR
+      - VITE_HMR_HOST=localhost  # Host for HMR
+      - VITE_HMR_PORT=5173  # Port for HMR
+      - CHOKIDAR_USEPOLLING=true  # Enable polling for file changes
+      - WATCHPACK_POLLING=true  # Enable polling for webpack
+      - PORT=5173  # Application port
+      - GROQ_API_KEY=${GROQ_API_KEY}  # GROQ API Key
+      - OPENAI_API_KEY=${OPENAI_API_KEY}  # OpenAI API Key
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}  # Anthropic API Key
+      - OPEN_ROUTER_API_KEY=${OPEN_ROUTER_API_KEY}  # Open Router API Key
+      - GOOGLE_GENERATIVE_AI_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY}  # Google Generative AI API Key
+      - OLLAMA_API_BASE_URL=${OLLAMA_API_BASE_URL}  # Ollama API Base URL
+      - VITE_LOG_LEVEL=${VITE_LOG_LEVEL:-debug}  # Log level for Vite
+      - RUNNING_IN_DOCKER=true  # Flag to indicate running in Docker
     extra_hosts:
       - "host.docker.internal:host-gateway"      
     volumes:
@@ -58,4 +58,4 @@ services:
     ports:
       - "5173:5173"  # Same port, no conflict as only one runs at a time
     command: pnpm run dev --host 0.0.0.0
-    profiles: ["development", "default"]  # Make development the default profile
+    profiles: ["development"]  # Set development as the default profile
