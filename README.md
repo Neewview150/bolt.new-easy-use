@@ -96,61 +96,54 @@ Whether you’re an experienced developer, a PM, or a designer, Bolt.new allows 
 
 For developers interested in building their own AI-powered development tools with WebContainers, check out the open-source Bolt codebase in this repo!
 
-## Setup
+## Quick Setup Guide
 
-Many of you are new users to installing software from Github. If you have any installation troubles reach out and submit an "issue" using the links above, or feel free to enhance this documentation by forking, editing the instructions, and doing a pull request.
+Follow these steps to get Bolt.new running locally:
 
-1. Install Git from https://git-scm.com/downloads
+1. **Install Prerequisites**:
+   - [Git](https://git-scm.com/downloads)
+   - [Node.js](https://nodejs.org/en/download/)
 
-2. Install Node.js from https://nodejs.org/en/download/ 
+2. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/coleam00/bolt.new-any-llm.git
+   cd bolt.new-any-llm
+   ```
 
-Pay attention to the installer notes after completion. 
+3. **Set Up Environment Variables**:
+   - Rename `.env.example` to `.env.local`.
+   - Add your API keys to `.env.local`:
+     ```bash
+     GROQ_API_KEY=your_groq_api_key
+     OPENAI_API_KEY=your_openai_api_key
+     ANTHROPIC_API_KEY=your_anthropic_api_key
+     ```
 
-On all operating systems, the path to Node.js should automatically be added to your system path. But you can check your path if you want to be sure. On Windows, you can search for "edit the system environment variables" in your system, select "Environment Variables..." once you are in the system properties, and then check for a path to Node in your "Path" system variable. On a Mac or Linux machine, it will tell you to check if /usr/local/bin is in your $PATH. To determine if usr/local/bin is included in $PATH open your Terminal and run:
+4. **Install Dependencies**:
+   ```bash
+   pnpm install
+   ```
 
-```
-echo $PATH .
-```
+5. **Start the Development Server**:
+   ```bash
+   pnpm run dev
+   ```
 
-If you see usr/local/bin in the output then you're good to go.
+### Using Docker for Setup
 
-3. Clone the repository (if you haven't already) by opening a Terminal window (or CMD with admin permissions) and then typing in this:
+For an easier setup, you can use Docker:
 
-```
-git clone https://github.com/coleam00/bolt.new-any-llm.git
-```
+1. **Build the Docker Image**:
+   ```bash
+   npm run dockerbuild
+   ```
 
-3. Rename .env.example to .env.local and add your LLM API keys. You will find this file on a Mac at "[your name]/bold.new-any-llm/.env.example". For Windows and Linux the path will be similar.
+2. **Run the Docker Container**:
+   ```bash
+   docker-compose --profile development up
+   ```
 
-![image](https://github.com/user-attachments/assets/7e6a532c-2268-401f-8310-e8d20c731328)
-
-If you can't see the file indicated above, its likely you can't view hidden files. On Mac, open a Terminal window and enter this command below. On Windows, you will see the hidden files option in File Explorer Settings. A quick Google search will help you if you are stuck here.
-
-```
-defaults write com.apple.finder AppleShowAllFiles YES
-```
-
-**NOTE**: you only have to set the ones you want to use and Ollama doesn't need an API key because it runs locally on your computer:
-
-Get your GROQ API Key here: https://console.groq.com/keys
-
-Get your Open AI API Key by following these instructions: https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key
-
-Get your Anthropic API Key in your account settings: https://console.anthropic.com/settings/keys
-
-```
-GROQ_API_KEY=XXX
-OPENAI_API_KEY=XXX
-ANTHROPIC_API_KEY=XXX
-```
-
-Optionally, you can set the debug level:
-
-```
-VITE_LOG_LEVEL=debug
-```
-
-**Important**: Never commit your `.env.local` file to version control. It's already included in .gitignore.
+These steps will get you up and running with Bolt.new quickly. For more detailed instructions, refer to the sections below.
 
 ## Run with Docker
 

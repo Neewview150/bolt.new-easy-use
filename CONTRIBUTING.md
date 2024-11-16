@@ -80,40 +80,40 @@ We're looking for dedicated contributors to help maintain and grow this project.
 2. Test sending requests to the new model and ensure responses are handled correctly.
 3. Check for any errors or issues in the console and address them as needed.
 
-## Development Setup
+## Quick Setup Guide
 
-### 🔄 Initial Setup
-1. Clone the repository:
-```bash
-git clone https://github.com/coleam00/bolt.new-any-llm.git
-```
+Follow these steps to get Bolt.new running locally:
 
-2. Install dependencies:
-```bash
-pnpm install
-```
+1. **Install Prerequisites**:
+   - [Git](https://git-scm.com/downloads)
+   - [Node.js](https://nodejs.org/en/download/)
 
-3. Set up environment variables:
-   - Rename `.env.example` to `.env.local`
-   - Add your LLM API keys (only set the ones you plan to use):
-```bash
-GROQ_API_KEY=XXX
-OPENAI_API_KEY=XXX
-ANTHROPIC_API_KEY=XXX
-...
-```
-   - Optionally set debug level:
-```bash
-VITE_LOG_LEVEL=debug
-```
-**Important**: Never commit your `.env.local` file to version control. It's already included in .gitignore.
+2. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/coleam00/bolt.new-any-llm.git
+   cd bolt.new-any-llm
+   ```
 
-### 🚀 Running the Development Server
-```bash
-pnpm run dev
-```
+3. **Set Up Environment Variables**:
+   - Rename `.env.example` to `.env.local`.
+   - Add your API keys to `.env.local`:
+     ```bash
+     GROQ_API_KEY=your_groq_api_key
+     OPENAI_API_KEY=your_openai_api_key
+     ANTHROPIC_API_KEY=your_anthropic_api_key
+     ```
 
-**Note**: You will need Google Chrome Canary to run this locally if you use Chrome! It's an easy install and a good browser for web development anyway.
+4. **Install Dependencies**:
+   ```bash
+   pnpm install
+   ```
+
+5. **Start the Development Server**:
+   ```bash
+   pnpm run dev
+   ```
+
+These steps will get you up and running with Bolt.new quickly. For more detailed instructions, refer to the sections below.
 
 ## Testing
 

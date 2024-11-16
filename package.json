@@ -6,13 +6,21 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "deploy": "npm run build && wrangler pages deploy",
-    "build": "remix vite:build",
+    // Use this script to start the development server locally
     "dev": "remix vite:dev",
+    // Use this script to build the application for production
+    "build": "remix vite:build",
+    // Use this script to deploy the application to Cloudflare Pages
+    "deploy": "npm run build && wrangler pages deploy",
+    // Use this script to run the test suite once
     "test": "vitest --run",
+    // Use this script to run the test suite in watch mode
     "test:watch": "vitest",
+    // Use this script to lint the codebase
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+    // Use this script to automatically fix linting issues
     "lint:fix": "npm run lint -- --fix",
+    // Use this script to start the built application locally
     "start": "bindings=$(./bindings.sh) && wrangler pages dev ./build/client $bindings",
     "dockerstart": "bindings=$(./bindings.sh) && wrangler pages dev ./build/client $bindings --ip 0.0.0.0 --port 5173 --no-show-interactive-dev-session",
     "dockerrun": "docker run -it -d --name bolt-ai-live -p 5173:5173 --env-file .env.local bolt-ai",
