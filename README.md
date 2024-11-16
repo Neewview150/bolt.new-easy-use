@@ -100,6 +100,44 @@ For developers interested in building their own AI-powered development tools wit
 
 Follow these steps to get Bolt.new running locally:
 
+## Running the Python Version of Bolt.new
+
+To run the Python version of Bolt.new, follow these steps:
+
+1. **Install Python**: Ensure you have Python 3.7 or later installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
+
+2. **Set Up a Virtual Environment**:
+   - Navigate to the directory where you want to set up the project.
+   - Run the following commands to create and activate a virtual environment:
+     ```bash
+     python -m venv venv
+     source venv/bin/activate  # On Windows use `venv\Scriptsctivate`
+     ```
+
+3. **Install Dependencies**:
+   - Ensure you are in the directory containing `requirements.txt`.
+   - Run the following command to install the necessary dependencies:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+4. **Run the Script**:
+   - Execute the following command to start the application:
+     ```bash
+     python bolt_new.py
+     ```
+   - The application will start on `http://localhost:5000`.
+
+5. **Access the Application**:
+   - Open a web browser and navigate to `http://localhost:5000` to access the application.
+
+### Features of the Python Version
+
+- **Web Interface**: A simple web interface to interact with the application.
+- **API Endpoints**: Basic API endpoints to handle requests and responses.
+- **Session Management**: User session management for login and logout functionality.
+- **Static File Serving**: Serve static files such as HTML, CSS, and JavaScript for the frontend.
+
 ## Building the APK for Android
 
 To build an APK for Android devices, follow these steps:
